@@ -387,7 +387,7 @@ public class LethalExpansion : BaseUnityPlugin
         }
         else if (runtimeDungeon.Generator.DungeonFlow == null)
         {
-            runtimeDungeon.Generator.DungeonFlow = RoundManager.Instance.dungeonFlowTypes[0];
+            runtimeDungeon.Generator.DungeonFlow = RoundManager.Instance.dungeonFlowTypes[0].dungeonFlow;
 
             LethalExpansion.Log.LogInfo("Setting missing DungeonFlow in DungeonGenerator");
         }
@@ -483,7 +483,7 @@ public class LethalExpansion : BaseUnityPlugin
         dungeonGenerator.transform.position = new Vector3(0, -200, 0);
 
         RuntimeDungeon runtimeDungeon = dungeonGenerator.AddComponent<RuntimeDungeon>();
-        runtimeDungeon.Generator.DungeonFlow = RoundManager.Instance.dungeonFlowTypes[0];
+        runtimeDungeon.Generator.DungeonFlow = RoundManager.Instance.dungeonFlowTypes[0].dungeonFlow;
         runtimeDungeon.Generator.LengthMultiplier = 0.8f;
         runtimeDungeon.Generator.PauseBetweenRooms = 0.2f;
         runtimeDungeon.GenerateOnStart = false;

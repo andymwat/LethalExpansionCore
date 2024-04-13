@@ -231,6 +231,7 @@ internal class Terminal_Patch
         {
             if (scrap.useGlobalSpawnWeight)
             {
+                LethalExpansion.Log.LogDebug($"Using global spawn rate for '{scrap.itemName}' on '{level.PlanetName}': '{scrap.globalSpawnWeight}'.");
                 return scrap.globalSpawnWeight;
             }
 
@@ -239,10 +240,19 @@ internal class Terminal_Patch
             bool containsPlanet = perPlanetSpawnWeight.Any(l => l.SceneName == level.PlanetName);
             if (!containsPlanet)
             {
+                if( perPlanetSpawnWeight.Any(l => l.SceneName == "Others") )
+                {
+                    ScrapSpawnChancePerScene otherChance = perPlanetSpawnWeight.First(l => l.SceneName == "Others");
+                    LethalExpansion.Log.LogDebug($"Spawn rate for '{scrap.itemName}' on '{level.PlanetName}': '{otherChance.SpawnWeight}' (Others).");
+                    return otherChance.SpawnWeight;
+
+                }
+                LethalExpansion.Log.LogError($"No spawn rate for '{scrap.itemName}' on '{level.PlanetName}'.");
                 return null;
             }
 
             ScrapSpawnChancePerScene scrapSpawnChance = perPlanetSpawnWeight.First(l => l.SceneName == level.PlanetName);
+            LethalExpansion.Log.LogDebug($"Spawn rate for '{scrap.itemName}' on '{level.PlanetName}': '{scrapSpawnChance.SpawnWeight}'.");
             return scrapSpawnChance.SpawnWeight;
         }
 
