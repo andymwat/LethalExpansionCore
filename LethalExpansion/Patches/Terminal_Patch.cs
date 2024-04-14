@@ -247,8 +247,10 @@ internal class Terminal_Patch
                     return otherChance.SpawnWeight;
 
                 }
-                LethalExpansion.Log.LogError($"No spawn rate for '{scrap.itemName}' on '{level.PlanetName}', using global spawn weight of {scrap.globalSpawnWeight}.");
-                return scrap.globalSpawnWeight;
+                //LethalExpansion.Log.LogError($"No spawn rate for '{scrap.itemName}' on '{level.PlanetName}', using global spawn weight of {scrap.globalSpawnWeight}.");
+                //return scrap.globalSpawnWeight;
+                LethalExpansion.Log.LogWarning($"No spawn rate for '{scrap.itemName}' on '{level.PlanetName}', scrap will not spawn.");
+                return null;
             }
 
             ScrapSpawnChancePerScene scrapSpawnChance = perPlanetSpawnWeight.First(l => l.SceneName == level.PlanetName);
