@@ -24,9 +24,9 @@ namespace LethalExpansionCore;
 
 public static class PluginInformation
 {
-    public const string PLUGIN_GUID = "com.github.lethalmods.lethalexpansioncore";
-    public const string PLUGIN_NAME = "LethalExpansion(core)";
-    public const string PLUGIN_VERSION = "1.3.15";
+    public const string PLUGIN_GUID = "com.github.lethalmods.lethalexpansioncorepatch";
+    public const string PLUGIN_NAME = "LethalExpansion(core) - Patched";
+    public const string PLUGIN_VERSION = "1.3.18";
 }
 
 [BepInPlugin(PluginInformation.PLUGIN_GUID, PluginInformation.PLUGIN_NAME, PluginInformation.PLUGIN_VERSION)]

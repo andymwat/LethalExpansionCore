@@ -14,7 +14,7 @@ internal class MenuManager_Patch
             if (__instance.versionNumberText != null)
             {
                 __instance.versionNumberText.enableWordWrapping = false;
-                __instance.versionNumberText.text += $"     LE(core)v{LethalExpansion.ModVersion}";
+                __instance.versionNumberText.text += $"     LE(core)patch v{LethalExpansion.ModVersion}";
             }
         }
     }
